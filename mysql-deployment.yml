@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
+  namespace: paymybuddy
   labels:
     app: paymybuddy
     tier: mysql
@@ -40,5 +41,5 @@ spec:
         persistentVolumeClaim:
           claimName: mysql-pvc
       - name: mysql-initdb
-        configMap:
-          name: mysql-init-script
+  configMap:
+    name: mysql-init-script
