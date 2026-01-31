@@ -8,7 +8,7 @@ data:
     CREATE DATABASE db_paymybuddy;
     USE db_paymybuddy;
     
-    CREATE TABLE user (
+    CREATE TABLE IF NOT EXISTS user (
         user_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
         email VARCHAR(100) NOT NULL UNIQUE,
         password VARCHAR(100) NOT NULL,
