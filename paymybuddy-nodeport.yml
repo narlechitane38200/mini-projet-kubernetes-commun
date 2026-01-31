@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: paymybuddy
+  namespace: paymybuddy
 spec:
   type: NodePort
   selector:
