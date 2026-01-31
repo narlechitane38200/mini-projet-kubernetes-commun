@@ -41,5 +41,5 @@ spec:
         persistentVolumeClaim:
           claimName: mysql-pvc
       - name: mysql-initdb
-  configMap:
-    name: mysql-init-script
+        configMap:
+          name: mysql-init-script
