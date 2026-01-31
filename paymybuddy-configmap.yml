@@ -5,7 +5,7 @@ metadata:
   namespace: paymybuddy
 data:
   init.sql: |
-    CREATE DATABASE db_paymybuddy;
+    CREATE DATABASE IF NOT EXISTSdb_paymybuddy;
     USE db_paymybuddy;
     
     CREATE TABLE IF NOT EXISTS user (
