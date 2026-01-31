@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paymybuddy
+  labels:
+    app: paymybuddy
+    tier: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: paymybuddy
+      tier: webapp
+  template:
+    metadata:
+      labels:
+        app: paymybuddy
+        tier: webapp
+    spec:
+      containers:
+      - name: paymybuddy
+        image: paymybuddy:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql:3306/db_paymybuddy
+        - name: SPRING_DATASOURCE_USERNAME
+          value: "root"        
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:            
+            secretKeyRef: 
+              name: paymybuddy-secrets
+              key: mysql_root_password
