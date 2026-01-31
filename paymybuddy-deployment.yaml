@@ -20,6 +20,7 @@ spec:
       containers:
       - name: paymybuddy
         image: paymybuddy:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         env:
