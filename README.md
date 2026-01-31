@@ -326,13 +326,13 @@ http://<IP-du-nœud>:30088
 
 Voici quelques captures d'écran de l'application en cours d'exécution :
 
-![Capture 1 - Ecran de connexion](asset/test_appli1.JPG)
+![Capture 1 - Ecran de connexion](assets/test_appli1.JPG)
 
-![Capture 2 - Inscription OK](asset/test_appli2.JPG)
+![Capture 2 - Inscription OK](assets/test_appli2.JPG)
 
-![Capture 3 - Authentification OK](asset/test_appli3.JPG)
+![Capture 3 - Authentification OK](assets/test_appli3.JPG)
 
-![Capture 4 - Ecran de transaction](asset/test_appli4.JPG)
+![Capture 4 - Ecran de transaction](assets/test_appli4.JPG)
 
 ---
 
