@@ -8,7 +8,8 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Delete
   storageClassName: manual
   hostPath:
     path: /data/mysql
+    type: DirectoryOrCreate
