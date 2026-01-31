@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    app: paymybuddy
+    tier: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: paymybuddy
+      tier: mysql
+  template:
+    metadata:
+      labels:
+        app: paymybuddy
+        tier: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:8.0
+        env:
+        - name: MYSQL_DATABASE
+          value: db_paymybuddy
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:            
+            secretKeyRef: 
+              name: wp-secrets
+              key: mysql_root_password   
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - mountPath: "/var/lib/mysql"
+          name: mysql-volume
+      volumes:
+      - name: mysql-volume
+        persistentVolumeClaim:
+          claimName: mysql-pvc
