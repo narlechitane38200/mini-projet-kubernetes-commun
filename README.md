@@ -296,7 +296,54 @@ paymybuddy-58f8d76689-9rcfl   1/1     Running   0          26s
 
 Les deux pods sont en statut `Running` et `READY 1/1`.
 
+#### Vérification des logs de démarrage SpringBoot
+
+```bash
+[node1 mini-projet-kubernetes-commun]$ kubectl logs paymybuddy-98596bb74-ldcnp -n paymybuddy
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.1)
+
+2026-02-19 13:11:31.113  INFO 1 --- [           main] c.p.paymybuddy.PayMyBuddyApplication     : Starting PayMyBuddyApplication v0.0.1-SNAPSHOT using Java 17.0.18 on paymybuddy-98596bb74-ldcnp with PID 1 (/app/paymybuddy.jar started by root in /app)
+2026-02-19 13:11:31.145  INFO 1 --- [           main] c.p.paymybuddy.PayMyBuddyApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-02-19 13:11:33.199  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19 13:11:33.297  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 82 ms. Found 4 JPA repository interfaces.
+2026-02-19 13:11:34.863  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2026-02-19 13:11:34.884  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19 13:11:34.884  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2026-02-19 13:11:35.064  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-19 13:11:35.064  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3704 ms
+2026-02-19 13:11:35.481  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-19 13:11:36.321  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-19 13:11:36.468  INFO 1 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-19 13:11:36.729  INFO 1 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2026-02-19 13:11:37.296  INFO 1 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2026-02-19 13:11:37.514  INFO 1 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2026-02-19 13:11:38.658  INFO 1 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2026-02-19 13:11:38.672  INFO 1 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19 13:11:39.903  WARN 1 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19 13:11:40.311  INFO 1 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3b5c665c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@78e17a99, org.springframework.security.web.context.SecurityContextPersistenceFilter@650ae78c, org.springframework.security.web.header.HeaderWriterFilter@5c83ae01, org.springframework.security.web.csrf.CsrfFilter@7d0d91a1, org.springframework.security.web.authentication.logout.LogoutFilter@12fe1f28, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@655a01d8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79c5460e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f94e148, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6614bd4b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@625a4ff, org.springframework.security.web.session.SessionManagementFilter@69d45cca, org.springframework.security.web.access.ExceptionTranslationFilter@4190bc8a, org.springframework.security.web.access.intercept.AuthorizationFilter@1507c3c3]
+2026-02-19 13:11:40.335  WARN 1 --- [           main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2026-02-19 13:11:40.335  INFO 1 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/images/**']
+2026-02-19 13:11:40.336  WARN 1 --- [           main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2026-02-19 13:11:40.336  INFO 1 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/js/**']
+2026-02-19 13:11:40.336  WARN 1 --- [           main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/webjars/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2026-02-19 13:11:40.336  INFO 1 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will not secure Ant [pattern='/webjars/**']
+2026-02-19 13:11:40.763  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2026-02-19 13:11:40.783  INFO 1 --- [           main] c.p.paymybuddy.PayMyBuddyApplication     : Started PayMyBuddyApplication in 10.73 seconds (JVM running for 11.617)
+2026-02-19 13:11:46.856  INFO 1 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-19 13:11:46.856  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-19 13:11:46.858  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-02-19 13:13:19.046  INFO 1 --- [nio-8080-exec-6] c.p.p.service.TransactionService         : Transactions with narlechitane38200@gmail.com:
+
 ---
+
+
 
 ### 10. Service NodePort pour PayMyBuddy
 
