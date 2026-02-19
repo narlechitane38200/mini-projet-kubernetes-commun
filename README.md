@@ -296,6 +296,8 @@ paymybuddy-58f8d76689-9rcfl   1/1     Running   0          26s
 
 Les deux pods sont en statut `Running` et `READY 1/1`.
 
+---
+
 #### Vérification des logs de démarrage SpringBoot
 
 ```bash
@@ -340,9 +342,8 @@ Les deux pods sont en statut `Running` et `READY 1/1`.
 2026-02-19 13:11:46.856  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2026-02-19 13:11:46.858  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
 2026-02-19 13:13:19.046  INFO 1 --- [nio-8080-exec-6] c.p.p.service.TransactionService         : Transactions with narlechitane38200@gmail.com:
-
+```
 ---
-
 
 
 ### 10. Service NodePort pour PayMyBuddy
